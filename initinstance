@@ -1,4 +1,4 @@
 #!/bin/bash
 cd /home/ubuntu
-echo "Hello from init script." > hello
-git clone git://github.com/ithkuil/ls.git
+echo "Hello from init script." > /home/ubuntu/hello
+/usr/bin/git clone git://github.com/ithkuil/ls.git
