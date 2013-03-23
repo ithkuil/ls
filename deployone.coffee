@@ -48,7 +48,6 @@ ec2.runInstances params, (err, data) ->
         if err?
           console.log 'Error getting instance status.'
           console.log err
-          process.exit 1
         else
           process.stdout.write '.'
           status = data.InstanceStatuses?[0].InstanceState?.Name

@@ -1,4 +1,5 @@
 {
   "statusBase": "http://localhost:3003",
-  "statusPort": 3003
+  "statusPort": 3003,
+  "sendReportTo": "ithkuil@gmail.com"
 }
