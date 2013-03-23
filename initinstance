@@ -5,6 +5,8 @@ echo "Hello from init script." > /home/ubuntu/hello
 cd ls
 git config --add concrete.runner 'npm test | coffee sesreport.coffee'
 /usr/local/bin/concrete .
+sleep 5
+wget http://localhost:4567
 set -e
 npm test | coffee sesreport.coffee
 ./build-worked

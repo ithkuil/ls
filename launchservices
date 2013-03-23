@@ -1,0 +1,3 @@
+#!/bin/bash
+nohup coffee statusservice.coffee --run &
+
