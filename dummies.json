@@ -1,0 +1,12 @@
+[
+  {
+    "phone": "6195508206",
+    "carrier": "verizon",
+    "locatable": true
+    },
+  {
+    "phone": "8581231234",
+    "carrier": "sprint",
+    "locatable": false
+  }
+]
