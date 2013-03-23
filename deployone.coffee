@@ -40,7 +40,7 @@ ec2.runInstances params, (err, data) ->
   else
     console.log "Instance launched:"
     console.log JSON.stringify(data, null, 4)
-    console.log "Waiting for boot.."
+    console.log "Waiting for boot and initialization.."
     interval 2000, ->
       which =
         InstanceIds: [ data?.Instances?[0].InstanceId ]

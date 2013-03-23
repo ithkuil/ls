@@ -3,7 +3,7 @@ cd /home/ubuntu
 echo "Hello from init script." > /home/ubuntu/hello
 /usr/bin/git clone git://github.com/ithkuil/ls.git
 cd ls
-git config --add concrete.runner 'npm test'
+git config --add concrete.runner 'npm test | coffee sesreport.coffee'
 /usr/local/bin/concrete .
 set -e
 npm test | coffee sesreport.coffee

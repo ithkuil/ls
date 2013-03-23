@@ -23,12 +23,10 @@ e.config = (t) ->
   t.ok config.statusPort
   t.done()
 
-
 e.testData = (t) ->
   t.ok testData
   t.ok (testData.length>0)
   t.done()
-
 
 e.startStatusService = (t) ->
     statusService = require './statusservice'

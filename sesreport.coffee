@@ -14,7 +14,6 @@ message = message.replace /\n/g, '<br/>'
 Convert = require 'ansi-to-html'
 convert = new Convert()
 
-
 html = convert.toHtml message
 
 html = '<div style="padding: 20px; background: #85A0F2;"">' + html + '</div>'
@@ -23,7 +22,7 @@ config = require './config.json'
 
 email =
   from:     'ithkuil@gmail.com'
-  to:       [ config.sendReportTo ]
+  to:       config.sendReportTo
   replyTo:  [ 'ithkuil@gmail.com' ]
   subject:  'Build output'
   body:
