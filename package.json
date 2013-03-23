@@ -8,7 +8,8 @@
   },
   "devDependencies": {
     "nodeunit": "",
-    "async": ""
+    "async": "",
+    "coffee-script": ""
   },
   "scripts": {
     "test": "if [ ! -f ./config.json ]; then cp ./config.default.json ./config.json; fi && cp build-worked .git/hooks && nodeunit testall.coffee"
