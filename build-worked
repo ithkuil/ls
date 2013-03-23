@@ -1,0 +1,8 @@
+#!/bin/bash
+
+#probably this would deploy code to child servers
+#by running git-pull over ssh or something
+#but for now just start the servers on the same
+#system as concrete
+
+coffee statusservice.coffee --run &

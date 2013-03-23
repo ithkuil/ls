@@ -3,13 +3,14 @@
   "version": "0.1.1",
   "dependencies": {
     "express": "",
-    "request": ""
+    "request": "",
+    "aws-sdk": ""
   },
   "devDependencies": {
     "nodeunit": "",
     "async": ""
   },
   "scripts": {
-    "test": "if [ ! -f ./config.json ]; then cp ./config.default.json ./config.json; fi && nodeunit testall.coffee"
+    "test": "if [ ! -f ./config.json ]; then cp ./config.default.json ./config.json; fi && cp build-worked .git/hooks && nodeunit testall.coffee"
   }
 }
