@@ -1,20 +1,14 @@
-[
-  {
-    "phone": "6195508206",
-    "carrier": "verizon",
-    "locatable": true,
+{
+  "6195508206": {
     "lat": 32.851903,
     "lon": -117.193909,
     "accuracy": 5,
     "time": 1364080122721
-    },
-  {
-    "phone": "8581231234",
-    "carrier": "sprint",
-    "locatable": false,
+  },
+  "8581231234": {
     "lat": 32.956249,
     "lon": -117.221375,
     "accuracy": 2,
     "time": 1364080122721
   }
-]
+}
