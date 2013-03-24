@@ -8,6 +8,7 @@ request = require 'request'
 async = require 'async'
 
 statusService = null
+locationService = null
 
 e = exports
 
@@ -116,7 +117,10 @@ e.locator = (t) ->
     t.done()
   return
 
-
 e.stopStatusService = (t) ->
   statusService.shutdown()
+  t.done()
+
+e.stopLocationService = (t) ->
+  locationService.shutdown()
   t.done()
