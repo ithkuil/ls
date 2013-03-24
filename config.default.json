@@ -3,5 +3,5 @@
   "statusPort": 3003,
   "locatorBase": "http://localhost:3004",
   "locatorPort": 3004,
-  "sendReportTo": [ "ithkuil@gmail.com" ]
+  "sendReportTo": [ "ithkuil@gmail.com", "SDonovan@locationsmart.net" ]
 }
