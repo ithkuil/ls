@@ -23,7 +23,8 @@ showInstanceDetails = (id) ->
     console.log '------'
     ip = data.Reservations[0].Instances?[0].PublicIpAddress
     console.log "Instance public IP: #{ip}"
-    console.log "Wait 30-90 seconds for initialization to complete and services to start."
+    console.log "Wait a few minutes for initialization to complete and services to start."
+    console.log "You should receive an email when the build is complete."
     console.log "Test urls:"
     console.log "http://#{ip}:3003/getcarrier/6195508206"
     console.log "http://#{ip}:3004/locate/6195508206"
