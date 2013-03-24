@@ -4,7 +4,7 @@ echo "Hello from init script." > /home/ubuntu/hello
 /usr/bin/git clone git://github.com/ithkuil/ls.git
 sudo chown ubuntu ls
 cd ls
-npm install
+sudo -u ubuntu npm install
 echo "cd ok " >> /home/ubuntu/hello
 git config --add concrete.runner 'npm test | coffee sesreport.coffee'
 echo "git config ok " >> /home/ubuntu/hello
