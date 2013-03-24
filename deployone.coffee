@@ -31,7 +31,7 @@ showInstanceDetails = (id) ->
     process.exit 0
 
 params =
-  ImageId: 'ami-162bb37f'
+  ImageId: 'ami-2425bd4d'
   MinCount: 1
   MaxCount: 1
   UserData: script
