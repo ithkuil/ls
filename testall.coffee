@@ -20,25 +20,17 @@ e.status = (t) ->
 
 e.locate = (t) ->
   for dummy in testData
-    locator.locate dummy.phone, dummy.carrier, (location) ->
-      t.equal location.lat, dummy.lat
-      t.equal location.lon, dummy.lon
-      t.equal location.accuracy, dummy.accuracy
-      t.equal location.time, dummy.time
+    locator.locate dummy.phone, (location) ->
+      if dummy.locatable
+        t.equal location.lat, dummy.lat
+        t.equal location.lon, dummy.lon
+        t.equal location.accuracy, dummy.accuracy
+        t.equal location.time, dummy.time
+      else
+        console.error location
+        t.equal location, undefined, 'not locatable'
   t.done()
 
-e.statusAndLocate = (t) ->
-  for dummy in testData
-    status.getCarrier dummy.phone, (statusInfo) ->
-      if statusInfo.locatable
-        locator.locate dummy.phone, statusInfo.carrier, (location) ->
-          t.equal location.lat, dummy.lat, 'lat match'
-          t.equal location.lon, dummy.lon, 'lon match'
-          t.equal location.accuracy, dummy.accuracy, 'accuracy match'
-          t.equal location.time, dummy.time, 'time match'
-      else
-        t.equal false, dummy.locatable, 'locatable match'
-  t.done()
 
 e.config = (t) ->
   t.ok config.statusBase
@@ -96,7 +88,7 @@ e.getCarrier = (t) ->
   return
 
 locatorRequest = (data, callback) ->
-  request.get "#{config.locatorBase}/locate/#{data.carrier}/#{data.phone}", (err, res, body) ->
+  request.get "#{config.locatorBase}/locate/#{data.phone}", (err, res, body) ->
     callback err, { data, body, code: res?.statusCode, headers: res?.headers }
 
 e.locator = (t) ->
@@ -113,11 +105,14 @@ e.locator = (t) ->
         info = JSON.parse body
       t.ok info?, body
       t.equal code, 200
-      t.equal headers['content-type'], 'application/json'
-      t.equal info.lat, data.lat, 'lat matches'
-      t.equal info.lon, data.lon, 'lon matches'
-      t.equal info.accuracy, data.accuracy, 'accuracy matches'
-      t.equal info.time, data.time, 'time matches'
+      if data.locatable
+        t.equal headers['content-type'], 'application/json'
+        t.equal info.lat, data.lat, 'lat matches'
+        t.equal info.lon, data.lon, 'lon matches'
+        t.equal info.accuracy, data.accuracy, 'accuracy matches'
+        t.equal info.time, data.time, 'time matches'
+      else
+        t.equal info, false
     t.done()
   return
 

@@ -1,6 +1,11 @@
 locatorData = require './locatordata.json'
+status = require './status'
 
-locate = (phone, carrier, callback) ->
-  callback locatorData[phone]
+locate = (phone, callback) ->
+  status.getCarrier phone, (status) ->
+    if status.locatable
+      callback locatorData[phone]
+    else
+      callback undefined
 
 exports.locate = locate
