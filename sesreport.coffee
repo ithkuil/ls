@@ -3,7 +3,7 @@ AmazonSES = require 'amazon-ses'
 credentials = require './credentials.json'
 ses = new AmazonSES credentials.accessKeyId, credentials.secretAccessKey
 
-#ses.verifyEmailAddress 'ithkuil@gmail.com'
+#ses.verifyEmailAddress 'SDonovan@locationsmart.net'
 
 fs = require 'fs'
 
