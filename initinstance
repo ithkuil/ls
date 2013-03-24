@@ -1,17 +1,22 @@
 #!/bin/bash
-sudo -u ubuntu cd /home/ubuntu
-sudo -u ubuntu echo "Hello from init script." > /home/ubuntu/hello
-sudo -u ubuntu cd /home/ubuntu && /usr/bin/git clone git://github.com/ithkuil/ls.git
-sudo -u ubuntu sudo chown ubuntu /home/ubuntu/ls
-sudo -u ubuntu cd ls
-sudo -u ubuntu cd /home/ubuntu/ls && npm install
-sudo -u ubuntu echo "cd ok " >> /home/ubuntu/hello
-sudo -u ubuntu cd /home/ubuntu/ls && git config --add concrete.runner 'npm test | coffee sesreport.coffee'
-sudo -u ubuntu echo "git config ok " >> /home/ubuntu/hello
-sudo -u ubuntu cd /home/ubuntu/ls && /usr/bin/concrete . >>/home/ubuntu/hello 2>&1 &
-sudo -u ubuntu echo "concrete ran ok " >> /home/ubuntu/hello
-sudo -u ubuntu sleep 5
-sudo -u ubuntu wget http://localhost:4567
+sudo -u ubuntu
+cat >init2 <<EOL
+cd /home/ubuntu
+echo "Hello from init script." > /home/ubuntu/hello
+/usr/bin/git clone git://github.com/ithkuil/ls.git
+cd ls
+npm install
+echo "cd and npm install ok " >> /home/ubuntu/hello
+git config --add concrete.runner 'npm test | coffee sesreport.coffee'
+echo "git config ok " >> /home/ubuntu/hello
+/usr/bin/concrete . >>/home/ubuntu/hello 2>&1 &
+echo "concrete ran ok " >> /home/ubuntu/hello
+sleep 5
+wget http://localhost:4567
 set -e
-sudo -u ubuntu cd /home/ubuntu/ls && npm test | coffee sesreport.coffee
-sudo -u ubuntu cd /home/ubuntu/ls && ./build-worked
+npm test | coffee sesreport.coffee
+./build-worked
+EOL
+chown ubuntu init2
+chmod uga+x init2
+sudo -u ubuntu ./init2
