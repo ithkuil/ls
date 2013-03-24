@@ -1,17 +1,17 @@
 #!/bin/bash
 sudo -u ubuntu cd /home/ubuntu
 sudo -u ubuntu echo "Hello from init script." > /home/ubuntu/hello
-sudo -u ubuntu /usr/bin/git clone git://github.com/ithkuil/ls.git
-sudo -u ubuntu sudo chown ubuntu ls
+sudo -u ubuntu cd /home/ubuntu && /usr/bin/git clone git://github.com/ithkuil/ls.git
+sudo -u ubuntu sudo chown ubuntu /home/ubuntu/ls
 sudo -u ubuntu cd ls
-sudo -u ubuntu npm install
+sudo -u ubuntu cd /home/ubuntu/ls && npm install
 sudo -u ubuntu echo "cd ok " >> /home/ubuntu/hello
-sudo -u ubuntu git config --add concrete.runner 'npm test | coffee sesreport.coffee'
+sudo -u ubuntu cd /home/ubuntu/ls && git config --add concrete.runner 'npm test | coffee sesreport.coffee'
 sudo -u ubuntu echo "git config ok " >> /home/ubuntu/hello
-sudo -u ubuntu /usr/bin/concrete . >>/home/ubuntu/hello 2>&1 &
+sudo -u ubuntu cd /home/ubuntu/ls && /usr/bin/concrete . >>/home/ubuntu/hello 2>&1 &
 sudo -u ubuntu echo "concrete ran ok " >> /home/ubuntu/hello
 sudo -u ubuntu sleep 5
 sudo -u ubuntu wget http://localhost:4567
 set -e
-sudo -u ubuntu npm test | coffee sesreport.coffee
-sudo -u ubuntu ./build-worked
+sudo -u ubuntu cd /home/ubuntu/ls && npm test | coffee sesreport.coffee
+sudo -u ubuntu cd /home/ubuntu/ls && ./build-worked
