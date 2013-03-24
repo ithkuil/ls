@@ -8,7 +8,10 @@ AWS.config.update { region: 'us-east-1' }
 ec2 = new AWS.EC2().client
 
 ec2.describeInstances (err, data) ->
-  console.log JSON.stringify(data, null, 4)
+  for obj in data.Reservations
+    for inst in obj.Instances
+      if inst.State.Name is 'running'
+        console.log inst.PublicIpAddress + '\t\t' + inst.LaunchTime
 
 
 

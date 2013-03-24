@@ -10,6 +10,8 @@ async = require 'async'
 statusService = null
 locationService = null
 
+child = require 'child_process'
+
 e = exports
 
 e.status = (t) ->
