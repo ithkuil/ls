@@ -12,6 +12,8 @@ to deploy an instance.  A few minutes later you should get an email (if you are 
 
 They are micro instances, but maybe best not to deploy too many because then I will get a bill from Amazon. heh.
 
+NOTE: There is a bug in Concrete where the first time you load the page up the styles don't load.  You just need to refresh the page the first time.
+
 - two REST/JSON services "status" and "location" both returning very basic information for a limited set of dummy phone numbers.
 -- status returns carrier (sprint, tmobile,verizon) and locatable (true/false)
 -- location returns lat, long, accuracy and time

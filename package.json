@@ -15,6 +15,6 @@
     "sleep": ""
   },
   "scripts": {
-    "test": "if [ ! -f ./config.json ]; then cp ./config.default.json ./config.json; fi && cp build-worked .git/hooks && chmod u+x .git/hooks/build-worked && nodeunit testall.coffee"
+    "test": "./beforetest && nodeunit testall.coffee"
   }
 }
