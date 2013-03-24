@@ -8,7 +8,7 @@ echo "Hello from init script." > /home/ubuntu/hello
 cd ls
 npm install
 echo "cd and npm install ok " >> /home/ubuntu/hello
-git config --add concrete.runner 'npm test | coffee sesreport.coffee'
+git config --add concrete.runner 'git pull && pkill -f coffee && npm test | coffee sesreport.coffee'
 echo "git config ok " >> /home/ubuntu/hello
 /usr/bin/concrete . >>/home/ubuntu/hello 2>&1 &
 echo "concrete ran ok " >> /home/ubuntu/hello
